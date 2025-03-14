@@ -3,7 +3,7 @@
  * @name 菜单
  * @team 鹿
  * @version 1.3.0
- * @description 原作者鑫仔，增加一样样式，优化菜单功能
+ * @description 原作者鑫仔，增加一些样式，优化菜单功能
  * @rule ^(菜单)$
  * @admin false
  * @public true
