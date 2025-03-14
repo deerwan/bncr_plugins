@@ -3,7 +3,7 @@
  * @name SSH终端管家Pro
  * @team 鹿
  * @version 2.2
- * @description 智能SSH管理｜可视化操作｜企业级审计
+ * @description 增加可视化配置
  * @rule ^(ssh|SSH)$
  * @priority 10000
  * @admin true
