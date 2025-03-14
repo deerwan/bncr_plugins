@@ -19,7 +19,9 @@
     - 优化设备选择界面，提升用户体验
     - 增强安全连接稳定性
     - 改进命令执行结果展示
-    /*
+    
+
+    */
 sysMethod.testModule(['ssh2'], { install: true });
 const Client = require('ssh2').Client;
 const { exec } = require('child_process');
