@@ -3,7 +3,7 @@
  * @name 菜单
  * @team 鹿
  * @version 1.3.0
- * @description 可自定义菜单内容和底部显示的菜单插件
+ * @description 原作者xinz，增加一样样式，优化菜单功能
  * @rule ^(菜单)$
  * @admin false
  * @public true
