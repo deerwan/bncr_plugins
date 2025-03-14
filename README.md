@@ -1,2 +1,4 @@
-# plugins
-一些自用二改的无界插件
+# BncrJS_plugins
+自用无界Bncr的插件
+## 官方库
+https://github.com/Anmours/Bncr
