@@ -44,6 +44,28 @@
     "id": "t4wcibkvdb6vxQ02ifP2hkA8gWg=",
     "isChatPlugin": false
   },
+  "uBXyvpVwTy69Yh2daKBY0W2kcE8=": {
+    "type": "github",
+    "name": "天气",
+    "author": "deer",
+    "team": "鹿",
+    "version": "1.0.0",
+    "description": "基于和风天气API的天气查询插件",
+    "classification": [
+      "工具"
+    ],
+    "filename": "天气.js",
+    "fileDir": "/plugins/deer/天气.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "uBXyvpVwTy69Yh2daKBY0W2kcE8=",
+    "isChatPlugin": true
+  },
   "CqqTR9sdJ3vqfEzmw7nKhEN3hbU=": {
     "type": "github",
     "name": "菜单",
