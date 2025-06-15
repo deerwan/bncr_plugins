@@ -21,6 +21,10 @@ const jsonSchema = BncrCreateSchema.object({
     .setTitle('显示空气质量')
     .setDescription('是否显示空气质量信息')
     .setDefault(true),
+  showWeatherIndex: BncrCreateSchema.boolean()
+    .setTitle('显示天气指数')
+    .setDescription('是否显示天气指数信息（穿衣、洗车、运动等）')
+    .setDefault(true),
   debugMode: BncrCreateSchema.boolean()
     .setTitle('调试模式')
     .setDescription('是否开启调试模式，开启后会在控制台输出调试信息')
@@ -77,10 +81,16 @@ async function getWeatherData(city) {
     const airRes = await fetch(airUrl);
     const airData = await airRes.json();
 
+    // 获取天气指数
+    const indicesUrl = `https://devapi.qweather.com/v7/indices/1d?location=${cityId}&key=${config.apiKey}&type=1,3,5,8,9`;
+    const indicesRes = await fetch(indicesUrl);
+    const indicesData = await indicesRes.json();
+
     return {
       location: locationData.location[0],
       now: weatherData.now,
-      air: airData.now
+      air: airData.now,
+      indices: indicesData.daily
     };
   } catch (error) {
     console.error('获取天气数据失败:', error);
@@ -90,7 +100,7 @@ async function getWeatherData(city) {
 
 // 生成天气消息
 async function generateWeatherMessage(weatherData) {
-  const { now, location, air } = weatherData;
+  const { now, location, air, indices } = weatherData;
   const config = await ConfigDB.get();
   
   let message = [
@@ -113,6 +123,26 @@ async function generateWeatherMessage(weatherData) {
       `PM2.5：${air.pm2p5}`,
       `PM10：${air.pm10}`
     );
+  }
+
+  if (config.showWeatherIndex && indices) {
+    message.push(
+      '━━━━━━━━━━━━━━',
+      '📊 天气指数'
+    );
+    
+    // 添加各项天气指数
+    indices.forEach(index => {
+      let emoji = '📊';
+      switch(index.type) {
+        case '1': emoji = '👕'; break; // 穿衣指数
+        case '3': emoji = '🚗'; break; // 洗车指数
+        case '5': emoji = '🏃'; break; // 运动指数
+        case '8': emoji = '🌂'; break; // 紫外线指数
+        case '9': emoji = '😷'; break; // 感冒指数
+      }
+      message.push(`${emoji} ${index.name}：${index.level} - ${index.text}`);
+    });
   }
 
   return message.join('\n');
