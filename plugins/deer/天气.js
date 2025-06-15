@@ -21,10 +21,6 @@ const jsonSchema = BncrCreateSchema.object({
     .setTitle('显示空气质量')
     .setDescription('是否显示空气质量信息')
     .setDefault(true),
-  showLifeIndex: BncrCreateSchema.boolean()
-    .setTitle('显示生活指数')
-    .setDescription('是否显示生活指数信息')
-    .setDefault(true),
   debugMode: BncrCreateSchema.boolean()
     .setTitle('调试模式')
     .setDescription('是否开启调试模式，开启后会在控制台输出调试信息')
@@ -81,16 +77,10 @@ async function getWeatherData(city) {
     const airRes = await fetch(airUrl);
     const airData = await airRes.json();
 
-    // 获取生活指数
-    const indicesUrl = `https://devapi.qweather.com/v7/indices/1d?location=${cityId}&key=${config.apiKey}&type=3,5,9`;
-    const indicesRes = await fetch(indicesUrl);
-    const indicesData = await indicesRes.json();
-
     return {
       location: locationData.location[0],
       now: weatherData.now,
-      air: airData.now,
-      indices: indicesData.daily?.[0]
+      air: airData.now
     };
   } catch (error) {
     console.error('获取天气数据失败:', error);
@@ -100,7 +90,7 @@ async function getWeatherData(city) {
 
 // 生成天气消息
 async function generateWeatherMessage(weatherData) {
-  const { now, location, air, indices } = weatherData;
+  const { now, location, air } = weatherData;
   const config = await ConfigDB.get();
   
   let message = [
@@ -123,30 +113,6 @@ async function generateWeatherMessage(weatherData) {
       `PM2.5：${air.pm2p5}`,
       `PM10：${air.pm10}`
     );
-  }
-
-  if (config.showLifeIndex && indices) {
-    message.push(
-      '━━━━━━━━━━━━━━',
-      '📊 生活指数'
-    );
-    // --- 调试日志开始 ---
-    if (config.debugMode) {
-      console.log('---------- 生活指数调试信息 ----------');
-      console.log('完整的 indices 对象:', JSON.stringify(indices, null, 2));
-      console.log('------------------------------------');
-    }
-    // --- 调试日志结束 ---
-
-    if (indices.dressing && indices.dressing.level) {
-      message.push(`穿衣指数：${indices.dressing.level}`);
-    }
-    if (indices.uv && indices.uv.level) {
-      message.push(`紫外线指数：${indices.uv.level}`);
-    }
-    if (indices.carWashing && indices.carWashing.level) {
-      message.push(`洗车指数：${indices.carWashing.level}`);
-    }
   }
 
   return message.join('\n');
