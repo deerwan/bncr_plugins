@@ -66,6 +66,29 @@
     "id": "PeZoi1D24tGWitzzgQ5LNXw+NIM=",
     "isChatPlugin": true
   },
+  "59C11YOug/amNINMPqvEpj7b2P4=": {
+    "type": "github",
+    "name": "IP地址查询",
+    "author": "deer",
+    "team": "鹿",
+    "version": "1.0.0",
+    "description": "查询当前公网IPv4地址",
+    "classification": [
+      "工具",
+      "网络"
+    ],
+    "filename": "IP地址查询.js",
+    "fileDir": "/plugins/deer/IP地址查询.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "59C11YOug/amNINMPqvEpj7b2P4=",
+    "isChatPlugin": true
+  },
   "nNDsYV7YEDPL2n9Wpw2fDYwlJMc=": {
     "type": "github",
     "name": "SSH终端管家Pro",
