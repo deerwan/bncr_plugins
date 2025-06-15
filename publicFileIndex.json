@@ -44,6 +44,28 @@
     "id": "t4wcibkvdb6vxQ02ifP2hkA8gWg=",
     "isChatPlugin": false
   },
+  "PeZoi1D24tGWitzzgQ5LNXw+NIM=": {
+    "type": "github",
+    "name": "IP变化通知",
+    "author": "IP变化通知",
+    "team": "小寒寒-小九九二改",
+    "version": "1.0.2",
+    "description": "IP变化通知，变化后自动执行代理“更换白名单”命令，多线路的请勿使用，增加更换dynv6 ddns功能",
+    "classification": [
+      "Server"
+    ],
+    "filename": "IP变化通知.js",
+    "fileDir": "/plugins/deer/IP变化通知.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "PeZoi1D24tGWitzzgQ5LNXw+NIM=",
+    "isChatPlugin": true
+  },
   "nNDsYV7YEDPL2n9Wpw2fDYwlJMc=": {
     "type": "github",
     "name": "SSH终端管家Pro",
@@ -110,6 +132,29 @@
     "isAuthentication": false,
     "isEncPlugin": false,
     "id": "W3lpL1TpG2tFXtFUQuoXpqQrKS8=",
+    "isChatPlugin": true
+  },
+  "7Ygs/WBeW514CeEPZMON6s9pXeg=": {
+    "type": "github",
+    "name": "更新代理白名单",
+    "author": "小九九 t.me/gdot0",
+    "team": "鹿",
+    "version": "1.1.0",
+    "description": "更换jl、su、51、yyy、ipzan白名单",
+    "classification": [
+      "工具",
+      "系统"
+    ],
+    "filename": "更新代理白名单.js",
+    "fileDir": "/plugins/deer/更新代理白名单.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "7Ygs/WBeW514CeEPZMON6s9pXeg=",
     "isChatPlugin": true
   },
   "YBnIExqTZPziy63medHHDbzflY0=": {
