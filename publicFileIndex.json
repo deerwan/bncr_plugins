@@ -89,6 +89,52 @@
     "id": "uBXyvpVwTy69Yh2daKBY0W2kcE8=",
     "isChatPlugin": true
   },
+  "W3lpL1TpG2tFXtFUQuoXpqQrKS8=": {
+    "type": "github",
+    "name": "更换rabbitpro反代",
+    "author": "小九九",
+    "team": "鹿",
+    "version": "1.0.3",
+    "description": "检查反代列表，更换可用的rabbitpro反代",
+    "classification": [
+      "工具",
+      "系统"
+    ],
+    "filename": "更换rabbitpro反代.js",
+    "fileDir": "/plugins/deer/更换rabbitpro反代.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "W3lpL1TpG2tFXtFUQuoXpqQrKS8=",
+    "isChatPlugin": true
+  },
+  "YBnIExqTZPziy63medHHDbzflY0=": {
+    "type": "github",
+    "name": "状态查询",
+    "author": "xinz",
+    "team": "鹿",
+    "version": "1.0.0",
+    "description": "本机资源查询",
+    "classification": [
+      "工具",
+      "系统"
+    ],
+    "filename": "状态查询.js",
+    "fileDir": "/plugins/deer/状态查询.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "YBnIExqTZPziy63medHHDbzflY0=",
+    "isChatPlugin": true
+  },
   "CqqTR9sdJ3vqfEzmw7nKhEN3hbU=": {
     "type": "github",
     "name": "菜单",
