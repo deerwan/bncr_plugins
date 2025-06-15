@@ -134,29 +134,6 @@
     "id": "W3lpL1TpG2tFXtFUQuoXpqQrKS8=",
     "isChatPlugin": true
   },
-  "7Ygs/WBeW514CeEPZMON6s9pXeg=": {
-    "type": "github",
-    "name": "更新代理白名单",
-    "author": "小九九 t.me/gdot0",
-    "team": "鹿",
-    "version": "1.1.0",
-    "description": "更换jl、su、51、yyy、ipzan白名单",
-    "classification": [
-      "工具",
-      "系统"
-    ],
-    "filename": "更新代理白名单.js",
-    "fileDir": "/plugins/deer/更新代理白名单.js",
-    "systemVersionRange": "",
-    "isCron": false,
-    "isAdapter": false,
-    "isMod": false,
-    "isService": false,
-    "isAuthentication": false,
-    "isEncPlugin": false,
-    "id": "7Ygs/WBeW514CeEPZMON6s9pXeg=",
-    "isChatPlugin": true
-  },
   "YBnIExqTZPziy63medHHDbzflY0=": {
     "type": "github",
     "name": "状态查询",
