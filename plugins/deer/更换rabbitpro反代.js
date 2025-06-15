@@ -9,6 +9,7 @@
  * @admin true
  * @public true
  * @priority 1000
+ * @classification ["工具","系统"]
  */
 
     /*

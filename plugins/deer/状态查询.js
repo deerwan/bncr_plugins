@@ -9,6 +9,7 @@
  * @public true
  * @priority 9999
  * @disable false
+ * @classification ["工具","系统"]
  */
 
 const os = require('os');
