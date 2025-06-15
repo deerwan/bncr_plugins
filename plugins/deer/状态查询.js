@@ -6,7 +6,7 @@
  * @description 本机资源查询
  * @rule ^(运行状态)$
  * @admin true
- * @public false
+ * @public true
  * @priority 9999
  * @disable false
  */
@@ -14,7 +14,22 @@
 const os = require('os');
 const { execSync } = require('child_process');
 const si = require('systeminformation'); // 引入 systeminformation 库
-const delMsgTime = 5000; // 设置删除消息的时间为 5000 毫秒
+const BncrCreateSchema = require('@bncr/create-schema');
+const BncrPluginConfig = require('@bncr/plugin-config');
+
+// 添加配置Schema
+const jsonSchema = BncrCreateSchema.object({
+  enableDelMsg: BncrCreateSchema.boolean()
+    .setTitle('是否启用消息自动撤回')
+    .setDescription('设置为开则在发送状态查询消息后自动撤回')
+    .setDefault(false),
+  delMsgTime: BncrCreateSchema.number()
+    .setTitle('消息撤回时间 (毫秒)')
+    .setDescription('自动撤回消息的延迟时间')
+    .setDefault(5000)
+});
+
+const ConfigDB = new BncrPluginConfig(jsonSchema);
 
 /**
  * 获取系统运行时间
@@ -160,26 +175,25 @@ CPU温度: ${cpuInfo['CPU温度']}
 
     const replyid = await s.reply(systemInfo);
     
-   /*  // 设置删除回复消息的延迟
-    setTimeout(async () => {
-        try {
-            await s.delMsg(replyid); // 撤回刚刚发的消息
-            console.log('消息撤回成功');
-        } catch (error) {
-            console.error('撤回消息失败:', error);
-        }
-    }, delMsgTime); */
+    // 根据配置决定是否删除消息
+    const config = await ConfigDB.get();
+    if (config.enableDelMsg) {
+        setTimeout(async () => {
+            try {
+                await s.delMsg(replyid); // 撤回刚刚发的消息
+                console.log('消息撤回成功');
+            } catch (error) {
+                console.error('撤回消息失败:', error);
+            }
+        }, config.delMsgTime); // 使用配置的时间
+    }
 }
 
-// 插件入口，处理指令“运行状态”
+// 插件入口，处理指令"运行状态"
 module.exports = async s => {
-    // 假设用户输入的指令
-    const command = '运行状态';
-
-    // 检查指令是否为“运行状态”
-    if (command === '运行状态') {
-        await getSystemInfo(s);
-    } else {
-        await s.reply('无效指令，请发送“运行状态”以获取系统信息。');
-    }
+    // 获取配置，确保ConfigDB已加载
+    await ConfigDB.get();
+    
+    // 直接调用获取系统信息并发送，因为@rule已经处理了指令匹配
+    await getSystemInfo(s);
 };

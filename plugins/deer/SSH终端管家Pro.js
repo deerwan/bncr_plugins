@@ -7,6 +7,7 @@
  * @rule ^(ssh|SSH)$
  * @priority 10000
  * @admin true
+ * @public true
  * @disable false
  * @classification ["工具","系统"]
  */
