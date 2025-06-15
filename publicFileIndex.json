@@ -44,6 +44,29 @@
     "id": "t4wcibkvdb6vxQ02ifP2hkA8gWg=",
     "isChatPlugin": false
   },
+  "nNDsYV7YEDPL2n9Wpw2fDYwlJMc=": {
+    "type": "github",
+    "name": "SSH终端管家Pro",
+    "author": "xinz",
+    "team": "鹿",
+    "version": "2.2",
+    "description": "增加可视化配置",
+    "classification": [
+      "工具",
+      "系统"
+    ],
+    "filename": "SSH终端管家Pro.js",
+    "fileDir": "/plugins/deer/SSH终端管家Pro.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "nNDsYV7YEDPL2n9Wpw2fDYwlJMc=",
+    "isChatPlugin": true
+  },
   "uBXyvpVwTy69Yh2daKBY0W2kcE8=": {
     "type": "github",
     "name": "天气",
