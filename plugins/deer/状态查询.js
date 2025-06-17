@@ -1,54 +1,32 @@
 /**
- * @author xinz
+ * @author seven
  * @name 状态查询
- * @team 鹿
+ * @team xinz
  * @version 1.0.0
  * @description 本机资源查询
  * @rule ^(运行状态)$
  * @admin true
- * @public true
+ * @public false
  * @priority 9999
  * @disable false
- * @classification ["工具","系统"]
  */
 
 const os = require('os');
 const { execSync } = require('child_process');
 const si = require('systeminformation'); // 引入 systeminformation 库
-const BncrCreateSchema = require('@bncr/create-schema');
-const BncrPluginConfig = require('@bncr/plugin-config');
 
-// 添加配置Schema
-const jsonSchema = BncrCreateSchema.object({
-  enableDelMsg: BncrCreateSchema.boolean()
-    .setTitle('是否启用消息自动撤回')
-    .setDescription('设置为开则在发送状态查询消息后自动撤回')
-    .setDefault(false),
-  delMsgTime: BncrCreateSchema.number()
-    .setTitle('消息撤回时间 (毫秒)')
-    .setDescription('自动撤回消息的延迟时间')
-    .setDefault(5000)
-});
-
-const ConfigDB = new BncrPluginConfig(jsonSchema);
+const delMsgTime = 5000; // 设置删除消息的时间为 5000 毫秒
 
 /**
  * 获取系统运行时间
  */
 function getUptime() {
     const uptimeInSeconds = os.uptime();
-    const hours = Math.floor((uptimeInSeconds % 86400)/3600);
+    const hours = Math.floor(uptimeInSeconds / 3600);
     const minutes = Math.floor((uptimeInSeconds % 3600) / 60);
-    const day = Math.floor(uptimeInSeconds / 86400)
-    const seconds = Math.floor(uptimeInSeconds % 60)
-    return {day, hours, minutes, seconds};
+    return { hours, minutes };
 }
-async function getgpus() {
-    // 获取GPU信息
-    const gpuData = await si.graphics();
-    const gpus = gpuData.controllers.map(gpu => `${gpu.vendor} ${gpu.model}`).join(', ');
-    return gpus || '无GPU信息'
-}
+
 /**
  * 获取系统负载信息
  */
@@ -160,41 +138,65 @@ async function getSystemInfo(s) {
     const cpuInfo = await getCpuInfo();
     const memoryInfo = getMemoryInfo();
     const diskInfo = getDiskInfo();
-    const gpus =await getgpus()
 
     // 格式化输出
-    const systemInfo = `${os.type()} ${os.release()}
-${cpuInfo['CPU型号']}: ${cpuInfo['CPU具体运行状态']['核心数']}核心-${cpuInfo['CPU具体运行状态']['速度']}MHz
-GPU: ${gpus}
+    const systemInfo = `
+运行时间: ${uptime.hours}小时 ${uptime.minutes}分钟
+
+系统信息:
+版本: ${process.version}
+操作系统: ${os.type()} ${os.release()}
+
+系统负载信息:
+1分钟负载: ${loadInfo['1分钟负载']}
+5分钟负载: ${loadInfo['5分钟负载']}
+15分钟负载: ${loadInfo['15分钟负载']}
+最大负载: ${loadInfo['最大负载']}
+负载限制: ${loadInfo['负载限制']}
+安全负载: ${loadInfo['安全负载']}
+
+CPU信息:
+CPU型号: ${cpuInfo['CPU型号']}（速度: ${cpuInfo['CPU具体运行状态']['速度']} MHz）（核心数: ${cpuInfo['CPU具体运行状态']['核心数']}）
 CPU使用率: ${cpuInfo['CPU使用率']}
 CPU温度: ${cpuInfo['CPU温度']}
-运存占用: ${memoryInfo['已用内存']}/${memoryInfo['总内存']}
-内存占用: ${diskInfo[0]['已用']}/${diskInfo[0]['总大小']}
-1/5/15分钟负载: ${loadInfo['1分钟负载']}/${loadInfo['5分钟负载']}/${loadInfo['15分钟负载']}
-活动/总进程数: ${cpuInfo['CPU具体运行状态']['活动进程数']}/${cpuInfo['CPU具体运行状态']['总进程数']} 
-已稳定运行${uptime.day}天${uptime.hours}小时${uptime.minutes}分${uptime.seconds}秒`;
+CPU具体运行状态:
+总进程数: ${cpuInfo['CPU具体运行状态']['总进程数']}
+活动进程数: ${cpuInfo['CPU具体运行状态']['活动进程数']}
+
+内存信息:
+总内存: ${memoryInfo['总内存']}
+可用内存: ${memoryInfo['可用内存']}
+已用内存: ${memoryInfo['已用内存']}
+
+磁盘信息:
+文件系统: ${diskInfo[0]['文件系统']}
+总大小: ${diskInfo[0]['总大小']}
+已用: ${diskInfo[0]['已用']}
+可用: ${diskInfo[0]['可用']}
+`;
 
     const replyid = await s.reply(systemInfo);
     
-    // 根据配置决定是否删除消息
-    const config = await ConfigDB.get();
-    if (config.enableDelMsg) {
-        setTimeout(async () => {
-            try {
-                await s.delMsg(replyid); // 撤回刚刚发的消息
-                console.log('消息撤回成功');
-            } catch (error) {
-                console.error('撤回消息失败:', error);
-            }
-        }, config.delMsgTime); // 使用配置的时间
-    }
+    // 设置删除回复消息的延迟
+    setTimeout(async () => {
+        try {
+            await s.delMsg(replyid); // 撤回刚刚发的消息
+            console.log('消息撤回成功');
+        } catch (error) {
+            console.error('撤回消息失败:', error);
+        }
+    }, delMsgTime);
 }
 
-// 插件入口，处理指令"运行状态"
+// 插件入口，处理指令“运行状态”
 module.exports = async s => {
-    // 获取配置，确保ConfigDB已加载
-    await ConfigDB.get();
-    
-    // 直接调用获取系统信息并发送，因为@rule已经处理了指令匹配
-    await getSystemInfo(s);
+    // 假设用户输入的指令
+    const command = '运行状态';
+
+    // 检查指令是否为“运行状态”
+    if (command === '运行状态') {
+        await getSystemInfo(s);
+    } else {
+        await s.reply('无效指令，请发送“运行状态”以获取系统信息。');
+    }
 };
