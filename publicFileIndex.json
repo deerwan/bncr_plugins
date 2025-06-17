@@ -66,11 +66,11 @@
     "id": "PeZoi1D24tGWitzzgQ5LNXw+NIM=",
     "isChatPlugin": true
   },
-  "59C11YOug/amNINMPqvEpj7b2P4=": {
+  "/cjnxosrf4YlM/cHMGFg1jW/JV4=": {
     "type": "github",
     "name": "IP地址查询",
-    "author": "deer",
-    "team": "鹿",
+    "author": "鹿",
+    "team": "deer",
     "version": "1.0.0",
     "description": "查询当前公网IPv4地址",
     "classification": [
@@ -86,14 +86,14 @@
     "isService": false,
     "isAuthentication": false,
     "isEncPlugin": false,
-    "id": "59C11YOug/amNINMPqvEpj7b2P4=",
+    "id": "/cjnxosrf4YlM/cHMGFg1jW/JV4=",
     "isChatPlugin": true
   },
-  "nNDsYV7YEDPL2n9Wpw2fDYwlJMc=": {
+  "rVF5uFsVRZiTaDupslGwX8U8RO8=": {
     "type": "github",
     "name": "SSH终端管家Pro",
-    "author": "xinz",
-    "team": "鹿",
+    "author": "鹿",
+    "team": "xinz",
     "version": "2.2",
     "description": "增加可视化配置",
     "classification": [
@@ -109,14 +109,14 @@
     "isService": false,
     "isAuthentication": false,
     "isEncPlugin": false,
-    "id": "nNDsYV7YEDPL2n9Wpw2fDYwlJMc=",
+    "id": "rVF5uFsVRZiTaDupslGwX8U8RO8=",
     "isChatPlugin": true
   },
-  "uBXyvpVwTy69Yh2daKBY0W2kcE8=": {
+  "SvFU8mweqJpWNmnmuF9eNbFiY+c=": {
     "type": "github",
     "name": "天气",
-    "author": "deer",
-    "team": "鹿",
+    "author": "鹿",
+    "team": "deer",
     "version": "1.0.0",
     "description": "基于和风天气API的天气查询插件",
     "classification": [
@@ -131,14 +131,14 @@
     "isService": false,
     "isAuthentication": false,
     "isEncPlugin": false,
-    "id": "uBXyvpVwTy69Yh2daKBY0W2kcE8=",
+    "id": "SvFU8mweqJpWNmnmuF9eNbFiY+c=",
     "isChatPlugin": true
   },
-  "W3lpL1TpG2tFXtFUQuoXpqQrKS8=": {
+  "YV4ONzPTNztHm9GeBmmloaHG/rs=": {
     "type": "github",
     "name": "更换rabbitpro反代",
-    "author": "小九九",
-    "team": "鹿",
+    "author": "鹿",
+    "team": "小九九",
     "version": "1.0.3",
     "description": "检查反代列表，更换可用的rabbitpro反代",
     "classification": [
@@ -154,14 +154,14 @@
     "isService": false,
     "isAuthentication": false,
     "isEncPlugin": false,
-    "id": "W3lpL1TpG2tFXtFUQuoXpqQrKS8=",
+    "id": "YV4ONzPTNztHm9GeBmmloaHG/rs=",
     "isChatPlugin": true
   },
-  "YBnIExqTZPziy63medHHDbzflY0=": {
+  "W5J4tdjFgd2ecbwFhz3MOlk6+hk=": {
     "type": "github",
     "name": "状态查询",
-    "author": "xinz",
-    "team": "鹿",
+    "author": "鹿",
+    "team": "xinz",
     "version": "1.0.0",
     "description": "系统资源监控插件，支持CPU、内存、磁盘等系统信息查询，支持自定义显示内容和自动删除时间",
     "classification": [
@@ -177,14 +177,14 @@
     "isService": false,
     "isAuthentication": false,
     "isEncPlugin": false,
-    "id": "YBnIExqTZPziy63medHHDbzflY0=",
+    "id": "W5J4tdjFgd2ecbwFhz3MOlk6+hk=",
     "isChatPlugin": true
   },
-  "CqqTR9sdJ3vqfEzmw7nKhEN3hbU=": {
+  "+DPfuu+ibNXq1l1cCt2YdloRouQ=": {
     "type": "github",
     "name": "菜单",
-    "author": "xinz",
-    "team": "鹿",
+    "author": "鹿",
+    "team": "xinz",
     "version": "1.3.1",
     "description": "增加一些样式",
     "classification": [
@@ -199,7 +199,7 @@
     "isService": false,
     "isAuthentication": false,
     "isEncPlugin": false,
-    "id": "CqqTR9sdJ3vqfEzmw7nKhEN3hbU=",
+    "id": "+DPfuu+ibNXq1l1cCt2YdloRouQ=",
     "isChatPlugin": true
   }
 }
