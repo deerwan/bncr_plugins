@@ -157,6 +157,29 @@
     "id": "W3lpL1TpG2tFXtFUQuoXpqQrKS8=",
     "isChatPlugin": true
   },
+  "YBnIExqTZPziy63medHHDbzflY0=": {
+    "type": "github",
+    "name": "状态查询",
+    "author": "xinz",
+    "team": "鹿",
+    "version": "1.0.0",
+    "description": "系统资源监控插件，支持CPU、内存、磁盘等系统信息查询，支持自定义显示内容和自动删除时间",
+    "classification": [
+      "系统",
+      "监控"
+    ],
+    "filename": "状态查询.js",
+    "fileDir": "/plugins/deer/状态查询.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "YBnIExqTZPziy63medHHDbzflY0=",
+    "isChatPlugin": true
+  },
   "CqqTR9sdJ3vqfEzmw7nKhEN3hbU=": {
     "type": "github",
     "name": "菜单",
