@@ -1,8 +1,8 @@
 /**
- * @author 小九九
+ * @author 鹿
  * @name 更换rabbitpro反代
  * @origin 小九九
- * @team 鹿
+ * @team 小九九
  * @version 1.0.3
  * @rule ^crbfd$
  * @description 检查反代列表，更换可用的rabbitpro反代

@@ -1,7 +1,7 @@
 /**
- * @author xinz
+ * @author 鹿
  * @name 状态查询
- * @team 鹿
+ * @team xinz
  * @version 1.0.0
  * @description 系统资源监控插件，支持CPU、内存、磁盘等系统信息查询，支持自定义显示内容和自动删除时间
  * @rule ^(运行状态|status|系统状态)$

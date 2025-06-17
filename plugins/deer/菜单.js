@@ -1,7 +1,7 @@
 /**
- * @author xinz
+ * @author 鹿
  * @name 菜单
- * @team 鹿
+ * @team xinz
  * @version 1.3.1
  * @description 增加一些样式
  * @rule ^(菜单)$

@@ -1,7 +1,7 @@
 /**
- * @author deer
+ * @author 鹿
  * @name IP地址查询
- * @team 鹿
+ * @team deer
  * @version 1.0.0
  * @description 查询当前公网IPv4地址
  * @rule ^(IP查询|ip查询)$

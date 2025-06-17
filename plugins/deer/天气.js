@@ -1,7 +1,7 @@
 /**
- * @author deer
+ * @author 鹿
  * @name 天气
- * @team 鹿
+ * @team deer
  * @version 1.0.0
  * @description 基于和风天气API的天气查询插件
  * @rule ^(.+)(天气|weather)$

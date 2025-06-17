@@ -1,7 +1,7 @@
 /**
- * @author xinz
+ * @author 鹿
  * @name SSH终端管家Pro
- * @team 鹿
+ * @team xinz
  * @version 2.2
  * @description 增加可视化配置
  * @rule ^(ssh|SSH)$
