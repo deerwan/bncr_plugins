@@ -112,6 +112,29 @@
     "id": "rVF5uFsVRZiTaDupslGwX8U8RO8=",
     "isChatPlugin": true
   },
+  "hyhJthaibWQJIoMTDYOiW7LDYCY=": {
+    "type": "github",
+    "name": "今天吃什么",
+    "author": "鹿",
+    "team": "deer",
+    "version": "1.0.1",
+    "description": "解决宇宙终极难题：今天吃什么？",
+    "classification": [
+      "生活",
+      "娱乐"
+    ],
+    "filename": "今天吃什么.js",
+    "fileDir": "/plugins/deer/今天吃什么.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "hyhJthaibWQJIoMTDYOiW7LDYCY=",
+    "isChatPlugin": true
+  },
   "SvFU8mweqJpWNmnmuF9eNbFiY+c=": {
     "type": "github",
     "name": "天气",
