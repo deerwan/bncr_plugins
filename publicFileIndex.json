@@ -89,29 +89,6 @@
     "id": "/cjnxosrf4YlM/cHMGFg1jW/JV4=",
     "isChatPlugin": true
   },
-  "rVF5uFsVRZiTaDupslGwX8U8RO8=": {
-    "type": "github",
-    "name": "SSH终端管家Pro",
-    "author": "鹿",
-    "team": "xinz",
-    "version": "2.2",
-    "description": "增加可视化配置",
-    "classification": [
-      "工具",
-      "系统"
-    ],
-    "filename": "SSH终端管家Pro.js",
-    "fileDir": "/plugins/deer/SSH终端管家Pro.js",
-    "systemVersionRange": "",
-    "isCron": false,
-    "isAdapter": false,
-    "isMod": false,
-    "isService": false,
-    "isAuthentication": false,
-    "isEncPlugin": false,
-    "id": "rVF5uFsVRZiTaDupslGwX8U8RO8=",
-    "isChatPlugin": true
-  },
   "hyhJthaibWQJIoMTDYOiW7LDYCY=": {
     "type": "github",
     "name": "今天吃什么",
@@ -179,29 +156,6 @@
     "isAuthentication": false,
     "isEncPlugin": false,
     "id": "ZB1ioOn1xpDbJKj3eVxO+M5IoQc=",
-    "isChatPlugin": true
-  },
-  "YV4ONzPTNztHm9GeBmmloaHG/rs=": {
-    "type": "github",
-    "name": "更换rabbitpro反代",
-    "author": "鹿",
-    "team": "小九九",
-    "version": "1.0.3",
-    "description": "检查反代列表，更换可用的rabbitpro反代",
-    "classification": [
-      "工具",
-      "系统"
-    ],
-    "filename": "更换rabbitpro反代.js",
-    "fileDir": "/plugins/deer/更换rabbitpro反代.js",
-    "systemVersionRange": "",
-    "isCron": false,
-    "isAdapter": false,
-    "isMod": false,
-    "isService": false,
-    "isAuthentication": false,
-    "isEncPlugin": false,
-    "id": "YV4ONzPTNztHm9GeBmmloaHG/rs=",
     "isChatPlugin": true
   },
   "x/Dhv90ExChLspUqHLyVuW/v0DI=": {
