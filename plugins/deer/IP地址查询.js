@@ -2,7 +2,7 @@
  * @author 鹿
  * @name IP地址查询
  * @team deer
- * @version 1.0.0
+ * @version 1.0.2
  * @description 查询当前公网IPv4地址
  * @rule ^(IP查询|ip查询)$
  * @admin true
@@ -12,39 +12,37 @@
  * @classification ["工具","网络"]
  */
 
-const got = require('got'); // 引入 got 库
-
 /**
- * 获取公网IPv4信息 (使用 api.ipify.org 和 reallyfreegeoip.org)
+ * 获取公网IPv4信息 (使用多个备用API)
  */
 async function getPublicIPv4Info() {
-    let publicIp = null;
+    const { default: got } = await import('got');
+    const apis = [
+        'https://api.ipify.org',
+        'https://ipinfo.io/ip',
+        'https://icanhazip.com',
+        'https://api.my-ip.io/ip',
+        'https://checkip.amazonaws.com'
+    ];
 
-    try {
-        // 1. 从 4.ipw.cn 获取公网 IPv4 地址
-        const ipifyResponse = await got('https://4.ipw.cn/');
-        // 尝试从响应中提取IPv4地址
-        const ipMatch = ipifyResponse.body.match(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/);
-        if (ipMatch && ipMatch[0]) {
-            publicIp = ipMatch[0];
+    for (const apiUrl of apis) {
+        try {
+            const response = await got(apiUrl, { timeout: { request: 5000 } });
+            const ip = response.body.trim();
+            // 验证IP地址格式
+            if (/^(\d{1,3}\.){3}\d{1,3}$/.test(ip)) {
+                return {
+                    ip: ip,
+                    // 其他字段不再需要，但保留结构以备将来扩展
+                    country: '未知',
+                    region: '未知',
+                    city: '未知',
+                    isp: '未知'
+                };
+            }
+        } catch (error) {
+            console.error(`从 ${apiUrl} 获取公网IPv4信息失败:`, error.message || error);
         }
-
-        // 即使只需要IP，我们也可能需要调用 reallyfreegeoip.org 来确认IP是否有效，
-        // 但为了极致简化，这里假设 4.ipw.cn 返回的IP是可信的。
-        // 如果需要更复杂的验证和信息，可以重新引入 reallyfreegeoip.org。
-
-        if (publicIp) {
-            return {
-                ip: publicIp,
-                // 其他字段不再需要，但保留结构以备将来扩展
-                country: '未知',
-                region: '未知',
-                city: '未知',
-                isp: '未知'
-            };
-        }
-    } catch (error) {
-        console.error('获取公网IPv4信息失败:', error.message || error);
     }
     return null;
 }
