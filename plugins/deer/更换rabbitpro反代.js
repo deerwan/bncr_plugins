@@ -7,7 +7,7 @@
  * @rule ^crbfd$
  * @description 更换当前可用的反代(增加推送平台)
  * @admin true
- * @public false
+ * @public true
  * @priority 1000
  * @classification ["工具","系统"]
  */

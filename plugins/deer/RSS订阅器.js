@@ -8,7 +8,7 @@
  * @rule ^手动检查订阅$
  * @rule ^搜索文章\s+.+$
  * @admin true
- * @public false
+ * @public true
  * @priority 90
  * @classification ["工具", "信息","RSS"]
  */
