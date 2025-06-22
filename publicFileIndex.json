@@ -157,6 +157,30 @@
     "id": "SvFU8mweqJpWNmnmuF9eNbFiY+c=",
     "isChatPlugin": true
   },
+  "ZB1ioOn1xpDbJKj3eVxO+M5IoQc=": {
+    "type": "github",
+    "name": "成语接龙",
+    "author": "鹿",
+    "team": "deer",
+    "version": "1.3.0",
+    "description": "来一场紧张刺激的成语接龙吧！现在支持积分、排行榜和超时功能！请使用\"接 成语\"来玩。",
+    "classification": [
+      "娱乐",
+      "游戏",
+      "文化"
+    ],
+    "filename": "成语接龙.js",
+    "fileDir": "/plugins/deer/成语接龙.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "ZB1ioOn1xpDbJKj3eVxO+M5IoQc=",
+    "isChatPlugin": true
+  },
   "YV4ONzPTNztHm9GeBmmloaHG/rs=": {
     "type": "github",
     "name": "更换rabbitpro反代",
@@ -224,6 +248,29 @@
     "isAuthentication": false,
     "isEncPlugin": false,
     "id": "W5J4tdjFgd2ecbwFhz3MOlk6+hk=",
+    "isChatPlugin": true
+  },
+  "gwl+5/7Q9/zD2LaxhpToS1u9JMQ=": {
+    "type": "github",
+    "name": "猜数字",
+    "author": "鹿",
+    "team": "deer",
+    "version": "1.3.0",
+    "description": "一个简单有趣的猜数字小游戏。请使用\"猜 [数字]\"来玩。带排行榜和超时功能。",
+    "classification": [
+      "娱乐",
+      "游戏"
+    ],
+    "filename": "猜数字.js",
+    "fileDir": "/plugins/deer/猜数字.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "gwl+5/7Q9/zD2LaxhpToS1u9JMQ=",
     "isChatPlugin": true
   },
   "+DPfuu+ibNXq1l1cCt2YdloRouQ=": {
