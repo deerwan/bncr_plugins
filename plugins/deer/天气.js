@@ -12,6 +12,7 @@
  * @classification ["工具"]
  */
 
+
 const jsonSchema = BncrCreateSchema.object({
   apiKey: BncrCreateSchema.string()
     .setTitle('和风天气API Key')

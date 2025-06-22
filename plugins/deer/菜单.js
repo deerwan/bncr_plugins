@@ -3,7 +3,7 @@
  * @name 菜单
  * @team xinz
  * @version 1.3.1
- * @description 增加一些样式
+ * @description 增加样式
  * @rule ^(菜单)$
  * @admin false
  * @public true
