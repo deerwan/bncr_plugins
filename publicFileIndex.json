@@ -180,6 +180,29 @@
     "id": "YV4ONzPTNztHm9GeBmmloaHG/rs=",
     "isChatPlugin": true
   },
+  "x/Dhv90ExChLspUqHLyVuW/v0DI=": {
+    "type": "github",
+    "name": "每日人品",
+    "author": "鹿",
+    "team": "deer",
+    "version": "1.0.0",
+    "description": "每日人品，测测你今天的人品值吧！",
+    "classification": [
+      "娱乐",
+      "游戏"
+    ],
+    "filename": "每日人品.js",
+    "fileDir": "/plugins/deer/每日人品.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "x/Dhv90ExChLspUqHLyVuW/v0DI=",
+    "isChatPlugin": true
+  },
   "W5J4tdjFgd2ecbwFhz3MOlk6+hk=": {
     "type": "github",
     "name": "状态查询",
