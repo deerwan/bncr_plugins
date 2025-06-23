@@ -333,6 +333,8 @@ module.exports = () => {
         return false;
       }
     };
+    // 按插件要求暴露 rawClient
+    HumanTG.Bridge.rawClient = client;
     clearTimeout(timeoutID);
     resolve(HumanTG);
   });
