@@ -44,6 +44,29 @@
     "id": "t4wcibkvdb6vxQ02ifP2hkA8gWg=",
     "isChatPlugin": false
   },
+  "oM+JBkHRBbuOmTzKGdQ7P7V0bG0=": {
+    "type": "github",
+    "name": "GitHub监控",
+    "author": "鹿",
+    "team": "deer",
+    "version": "1.0.0",
+    "description": "定时监控指定的GitHub仓库，并支持手动触发检查。",
+    "classification": [
+      "工具",
+      "通知"
+    ],
+    "filename": "GitHub监控.js",
+    "fileDir": "/plugins/deer/GitHub监控.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": true,
+    "id": "oM+JBkHRBbuOmTzKGdQ7P7V0bG0=",
+    "isChatPlugin": true
+  },
   "PeZoi1D24tGWitzzgQ5LNXw+NIM=": {
     "type": "github",
     "name": "IP变化通知",
