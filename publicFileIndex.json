@@ -159,6 +159,28 @@
     "id": "W5J4tdjFgd2ecbwFhz3MOlk6+hk=",
     "isChatPlugin": true
   },
+  "HhtB75clI49NvG3S51FVuQsRW1M=": {
+    "type": "github",
+    "name": "电信营业厅登录",
+    "author": "DEER",
+    "team": "deer",
+    "version": "1.0.0",
+    "description": "电信营业厅账号提交，将账号密码写入青龙面板，适配 ChinaTelecomyyt.js",
+    "classification": [
+      "工具"
+    ],
+    "filename": "电信营业厅登录.js",
+    "fileDir": "/plugins/deer/电信营业厅登录.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": true,
+    "id": "HhtB75clI49NvG3S51FVuQsRW1M=",
+    "isChatPlugin": true
+  },
   "+DPfuu+ibNXq1l1cCt2YdloRouQ=": {
     "type": "github",
     "name": "菜单",
@@ -179,6 +201,28 @@
     "isAuthentication": false,
     "isEncPlugin": false,
     "id": "+DPfuu+ibNXq1l1cCt2YdloRouQ=",
+    "isChatPlugin": true
+  },
+  "cL7DBt6lyKhtY5+udAM9Bh0gZhw=": {
+    "type": "github",
+    "name": "顺丰速运登录",
+    "author": "DEER",
+    "team": "deer",
+    "version": "1.0.0",
+    "description": "顺丰速运登录，获取CK并写入青龙面板，适配 呆呆",
+    "classification": [
+      "工具"
+    ],
+    "filename": "顺丰速运登录.js",
+    "fileDir": "/plugins/deer/顺丰速运登录.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": true,
+    "id": "cL7DBt6lyKhtY5+udAM9Bh0gZhw=",
     "isChatPlugin": true
   }
 }
