@@ -164,7 +164,7 @@
     "name": "电信营业厅登录",
     "author": "DEER",
     "team": "deer",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "电信营业厅账号提交，将账号密码写入青龙面板，适配 ChinaTelecomyyt.js",
     "classification": [
       "工具"
@@ -208,7 +208,7 @@
     "name": "顺丰速运登录",
     "author": "DEER",
     "team": "deer",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "顺丰速运登录，获取CK并写入青龙面板，适配 呆呆",
     "classification": [
       "工具"
