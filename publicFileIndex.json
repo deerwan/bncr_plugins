@@ -44,6 +44,28 @@
     "id": "t4wcibkvdb6vxQ02ifP2hkA8gWg=",
     "isChatPlugin": false
   },
+  "Co5TtqBV7okVfhui52Xele/29X8=": {
+    "type": "github",
+    "name": "ChatGPT",
+    "author": "seven",
+    "team": "xinz",
+    "version": "1.0.5",
+    "description": "ChatGpt聊天，适配无界3.0，删除了tts避免部分不支持tts 修复对话只能独立对话 ",
+    "classification": [
+      "插件"
+    ],
+    "filename": "ChatGPT.js",
+    "fileDir": "/plugins/deer/ChatGPT.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "Co5TtqBV7okVfhui52Xele/29X8=",
+    "isChatPlugin": true
+  },
   "oM+JBkHRBbuOmTzKGdQ7P7V0bG0=": {
     "type": "github",
     "name": "GitHub监控",
