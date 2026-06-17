@@ -34,21 +34,21 @@ const promptOptions = prompts.map((prompt, index) => ({
     name: prompt.act
 }));
 
-// 定义模型选项
-const modes = ['claude-sonnet-4.6-thinking', 'claude-sonnet-4.6', 'deepseek-ocr', 'deepseek-v3.2-thinking', 'doubao-1.6', 'edge-tts-cn-auto', 'gemini-3.1-pro', 'gpt-5.4', 'grok-4.1-thinking', 'grok-4.20-beta'];
-
 // 插件界面
 const jsonSchema = BCS.object({
-    apiBaseUrl: BCS.string().setTitle('ApiBaseUrl').setDescription('必填项，一般为"域名/v1"').setDefault(''), // API 基础 URL
-    apiKey: BCS.string().setTitle('ApiKey').setDescription('必填项').setDefault(''), // API 密钥
-    isEdit: BCS.boolean().setTitle('HumanTG是否开启编辑模式').setDescription('关闭则逐条回复，不编辑消息').setDefault(false), // 编辑模式开关
-    promptSel: BCS.number().setTitle('选择预设角色').setDescription('请根据需要选择').setEnum(promptOptions.map(opt => opt.num)).setEnumNames(promptOptions.map(opt => opt.name)).setDefault(0), // 选择预设角色
-    modeSel: BCS.string().setTitle('选择GPT模型').setDescription('请根据需要选择').setEnum(modes).setDefault('gpt-3.5-turbo'), // 选择 GPT 模型
-    promptDiy: BCS.string().setTitle('请输入自定义Prompt').setDescription('输入自定义Prompt会使预设角色失效').setDefault(''), // 自定义 Prompt
-    imgEnabled: BCS.boolean().setTitle('启用画图功能').setDescription('开启后将使用画图功能').setDefault(false), // 画图开关
-    imgBaseUrl: BCS.string().setTitle('画图的ApiBaseUrl').setDescription('启用画图功能必填，一般为"域名/v1"').setDefault(''), // 画图 API 基础 URL
-    imgMode: BCS.string().setTitle('画图的模型').setDescription('启用画图功能必填，根据自己的API支持情况填写').setDefault(''), // 画图模型
-    imgApiKey: BCS.string().setTitle('画图的ApiKey').setDescription('启用画图功能必填，根据自己的API支持情况填写').setDefault('') // 画图 API 密钥
+    // ===== AI 聊天配置 =====
+    aiEnabled: BCS.boolean().setTitle('【AI聊天】启用AI聊天功能').setDescription('开启后将使用AI聊天功能').setDefault(true),
+    apiBaseUrl: BCS.string().setTitle('【AI聊天】聊天ApiBaseUrl').setDescription('必填项，一般为"域名/v1"').setDefault(''),
+    apiKey: BCS.string().setTitle('【AI聊天】聊天ApiKey').setDescription('必填项').setDefault(''),
+    isEdit: BCS.boolean().setTitle('【AI聊天】HumanTG是否开启编辑模式').setDescription('关闭则逐条回复，不编辑消息').setDefault(false),
+    promptSel: BCS.number().setTitle('【AI聊天】选择预设角色').setDescription('请根据需要选择').setEnum(promptOptions.map(opt => opt.num)).setEnumNames(promptOptions.map(opt => opt.name)).setDefault(0),
+    modeCustom: BCS.string().setTitle('【AI聊天】语言模型').setDescription('填写要使用的模型名称').setDefault(''),
+    promptDiy: BCS.string().setTitle('【AI聊天】自定义Prompt').setDescription('输入自定义Prompt会使预设角色失效').setDefault(''),
+    // ===== 画图配置 =====
+    imgEnabled: BCS.boolean().setTitle('【画图】启用画图功能').setDescription('开启后将使用画图功能').setDefault(false),
+    imgBaseUrl: BCS.string().setTitle('【画图】画图ApiBaseUrl').setDescription('启用画图功能必填，一般为"域名/v1"').setDefault(''),
+    imgMode: BCS.string().setTitle('【画图】画图模型').setDescription('启用画图功能必填，根据自己的API支持情况填写').setDefault(''),
+    imgApiKey: BCS.string().setTitle('【画图】画图ApiKey').setDescription('启用画图功能必填，根据自己的API支持情况填写').setDefault('')
 });
 
 // 创建配置数据库
@@ -69,6 +69,8 @@ module.exports = async (sender) => {
         const apiBaseUrl = CDB.apiBaseUrl; // 获取 API 基础 URL
         const isEdit = CDB.isEdit; // 获取编辑模式
         const promptDiy = CDB.promptDiy; // 获取自定义 Prompt
+        const modeCustom = CDB.modeCustom; // 获取模型名称
+        const aiEnabled = CDB.aiEnabled; // 获取AI开关
         const imgEnabled = CDB.imgEnabled; // 获取画图开关
         const imgBaseUrl = CDB.imgBaseUrl; // 获取画图 API 基础 URL
         const imgMode = CDB.imgMode; // 获取画图模型
@@ -81,12 +83,13 @@ module.exports = async (sender) => {
         let gptAPI = new ChatGPTAPI({
             apiKey: apiKey,
             apiBaseUrl: apiBaseUrl,
-            completionParams: { model: CDB.modeSel }, // 设置使用的模型
+            completionParams: { model: modeCustom }, // 使用配置的模型
             debug: false
         });
 
         // 处理 'ai' 命令
         if (sender.param(1) === 'ai') {
+            if (!aiEnabled) return await relpyMod(sender, isEdit, "未启用AI聊天功能"); // 检查AI开关
             let prompt = promptDiy || prompts[CDB.promptSel].prompt; // 获取选定的预设 Prompt 或自定义 Prompt
             const promptMessage = `${prompt}，另外，输出字符限制，输出50-100字。`;
             await relpyMod(sender, isEdit, `正在思考中，请稍后...`); // 发送思考中的提示
@@ -157,8 +160,8 @@ module.exports = async (sender) => {
 // 定义 relpyMod 函数
 async function relpyMod(s, isEdit, message) {
     const userId = s.getUserId(); // 获取用户 ID
-    if (isEdit) {
-        await s.edit(message); // 如果启用了编辑模式，编辑消息
+    if (isEdit && typeof s.edit === 'function') {
+        await s.edit(message); // 如果启用了编辑模式且支持edit方法，编辑消息
     } else {
         await s.reply(message); // 否则发送新消息
     }
