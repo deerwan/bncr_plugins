@@ -71,8 +71,8 @@
     "name": "GitHub监控",
     "author": "鹿",
     "team": "deer",
-    "version": "1.5.1",
-    "description": "定时监控指定的GitHub仓库、用户与组织动态，并支持手动触发检查。",
+    "version": "2.0.0",
+    "description": "监控指定的GitHub仓库、用户与组织动态。支持轮询(since游标)与Webhook事件两种模式，Webhook模式下由GitHub主动推送，不重复、不轮询。",
     "classification": [
       "工具",
       "通知"
